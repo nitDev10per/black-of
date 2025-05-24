@@ -42,6 +42,7 @@ export const ClickableCard = ({ imageSrc, alt, text, onClick, isActive, style}: 
             width={100}
             height={100}
             style={{ borderRadius: 8 }}
+            loading="lazy"
           />
         ) : (
           <Box sx={{ height: 100, width: 100 }} />

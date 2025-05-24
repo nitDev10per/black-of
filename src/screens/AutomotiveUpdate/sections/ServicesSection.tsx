@@ -7,6 +7,13 @@ import { JSX, useEffect, useRef, useState } from "react";
 export const ServicesSection = (): JSX.Element => {
   const [hovered, setHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(1);
+  const [daynamicLoad, setDaynamicLoad] = useState(false);
+
+  useEffect(() => {
+    if (hovered) {
+      setDaynamicLoad(true)
+    }
+  }, [hovered]);
 
   const [currentVideo, setCurrentVideo] = useState([
     {
@@ -150,7 +157,7 @@ export const ServicesSection = (): JSX.Element => {
           </Box>
         </Typography>
 
-        <Box
+        {daynamicLoad && <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -270,6 +277,7 @@ export const ServicesSection = (): JSX.Element => {
                     loop
                     muted
                     playsInline
+                    
                     style={{
                       width: "100%",
                       height: "100%",
@@ -293,7 +301,7 @@ export const ServicesSection = (): JSX.Element => {
               </Box>
             ))}
           </Box>
-        </Box>
+        </Box>}
 
         <Typography
           sx={{
@@ -331,7 +339,7 @@ export const ServicesSection = (): JSX.Element => {
               style={{
                 opacity: !hovered ? 0 : currentIndex === 0 ? 0 : 1,
                 transform:
-                !hovered ? "translateY(0)" : currentIndex === 0 ? "translateY(50px)" : "translateY(0)",
+                !hovered ? "translateY(50px)" : currentIndex === 0 ? "translateY(50px)" : "translateY(0)",
                 transition:
                   "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
               }}

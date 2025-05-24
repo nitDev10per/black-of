@@ -23,13 +23,13 @@ export const ServicesSection = (): JSX.Element => {
 
   const cabinData = [
     {
-      imageSrc: "/img/Complete.png",
+      imageSrc: "/img/complete.png",
       alt: "Complete Body",
       text: "Complete Body",
       video: "/img/Passenger Alpha - Trim.mp4",
     },
     {
-      imageSrc: "/img/Front.png",
+      imageSrc: "/img/front.png",
       alt: "Front",
       text: "Front",
       video: "/vid/Front.mp4",
@@ -41,13 +41,13 @@ export const ServicesSection = (): JSX.Element => {
       video: "/vid/Cabin.mp4",
     },
     {
-      imageSrc: "/img/Trunk.png",
+      imageSrc: "/img/trunk.png",
       alt: "Trunk",
       text: "Trunk",
       video: "/vid/Trunk.mp4",
     },
     {
-      imageSrc: "/img/Exterior.png",
+      imageSrc: "/img/exterior.png",
       alt: "Exterior",
       text: "Exterior",
       video: "/vid/Exterior.mp4",
@@ -320,7 +320,7 @@ export const ServicesSection = (): JSX.Element => {
             zIndex: 12,
           }}
         >
-          {cabinData.map((item, index) => (
+          {cabinData?.map((item, index) => (
             <ClickableCard
               key={index}
               imageSrc={item.imageSrc}

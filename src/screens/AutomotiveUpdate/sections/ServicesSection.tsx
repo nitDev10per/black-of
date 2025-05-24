@@ -143,6 +143,7 @@ export const ServicesSection = (): JSX.Element => {
             transform: !hovered ? "translateY(200%)" : "translateY(-50px)",
             transition: "transform 0.5s ease-out",
             position: "relative",
+            fontSize: { xs: "1rem", sm: "1rem", md: "1.5rem", lg: "2rem" },
           }}
         >
           <Box component="span" sx={{ fontWeight: 300, color: "white" }}>
@@ -250,6 +251,7 @@ export const ServicesSection = (): JSX.Element => {
                         flexDirection: "column",
                         alignItems: "start",
                         gap: 1,
+                        fontSize: { xs: "0.6rem", sm: "0.7rem", md: "1rem", lg: "1.3rem" },
                       }}
                     >
                       <Box component="span" fontWeight="bold">
@@ -266,38 +268,33 @@ export const ServicesSection = (): JSX.Element => {
                     </Typography>
                   </Box>
                 </Box>
-                <Box
-                  sx={{
-                    minHeight: "25vw",
-                  }}
-                >
-                  <video
-                    ref={index === 0 ? videoRef : null}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      maxHeight:
-                       !hovered? '5vw' :
-                        index === 1 && currentIndex === 0
-                          ? "25vw"
-                          : index === 0 && currentIndex === 1
-                          ? "25vw"
-                          : "5vw",
-                      maxWidth: "fit-content",
-                      transition:
-                        "max-height 0.5s ease-out, max-width 0.5s ease-out",
-                    }}
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </Box>
+                 {/* Video Box */}
+          <Box sx={{ minHeight: { xs: "50vw", sm: "40vw", md: "26vw", lg: "20vw" }, }}>
+            <video
+              ref={index === 0 ? videoRef : null}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                maxHeight: !hovered
+                  ? "5vw"
+                  : index === 1 && currentIndex === 0
+                  ? "25vw"
+                  : index === 0 && currentIndex === 1
+                  ? "25vw"
+                  : "5vw",
+                maxWidth: "100%",
+                transition: "max-height 0.5s ease-out, max-width 0.5s ease-out",
+              }}
+            >
+              <source src={video.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </Box>
               </Box>
             ))}
           </Box>
@@ -305,11 +302,11 @@ export const ServicesSection = (): JSX.Element => {
 
         <Typography
           sx={{
-            fontSize: "17.8px",
             textAlign: "center",
             color: "rgba(255, 255, 255, 0.5)",
             mt: 5,
             zIndex: 12,
+            fontSize: { xs: "0.5rem", sm: "0.6rem", md: "0.7rem", lg: "1rem" },
           }}
         >
           Click anywhere for next slide <br />
@@ -351,8 +348,7 @@ export const ServicesSection = (): JSX.Element => {
             width={50}
             height={50}
             style={{
-              height: 80,
-              width: 80,
+               width: "10vh", height: "10vh",
               marginLeft: 100,
             }}
           />

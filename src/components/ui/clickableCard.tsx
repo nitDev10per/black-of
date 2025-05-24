@@ -14,6 +14,7 @@ interface ClickableCardProps {
 export const ClickableCard = ({ imageSrc, alt, text, onClick, isActive, style}: ClickableCardProps) => {
   const [hovered, setHovered] = useState(false);
 
+
   const shouldShowColor = isActive || hovered;
 
   return (
@@ -41,17 +42,18 @@ export const ClickableCard = ({ imageSrc, alt, text, onClick, isActive, style}: 
             alt={alt}
             width={100}
             height={100}
-            style={{ borderRadius: 8 }}
+            style={{ borderRadius: 8, width: "10vh", height: "10vh" }}
             loading="lazy"
-          />
+          />  
         ) : (
-          <Box sx={{ height: 100, width: 100 }} />
+          <Box sx={{  width: "10vh", height: "10vh"  }} />
         )}
         <Typography
           variant="body1"
           sx={{
             color: "white",
             textAlign: "center",
+            fontSize: { xs: "0.6rem", sm: "0.7rem", md: "1rem", lg: "1rem" },
           }}
         >
           {text}

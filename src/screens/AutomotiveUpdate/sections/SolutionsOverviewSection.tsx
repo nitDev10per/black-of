@@ -34,7 +34,7 @@ export const SolutionsOverviewSection = (): JSX.Element => {
               style={{
                 position: "absolute",
                 top: 3,
-                left: 46,
+                left: 4,
               }}
             />
           </Box>
@@ -44,6 +44,8 @@ export const SolutionsOverviewSection = (): JSX.Element => {
               variant="contained"
               sx={{
                 ...stylesSmallComponent.buttonStyle,
+                px: { xs: 1, sm: 2 },
+                fontSize: { xs: "0.5rem", sm: "0.875rem" },
               }}
             >
               Contact Us

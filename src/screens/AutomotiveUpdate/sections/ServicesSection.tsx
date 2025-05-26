@@ -1,6 +1,6 @@
 import React from "react";
 import { ClickableCard } from "@/components/ui/clickableCard";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { JSX, useEffect, useRef, useState } from "react";
 
@@ -8,6 +8,19 @@ export const ServicesSection = (): JSX.Element => {
   const [hovered, setHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(1);
   const [daynamicLoad, setDaynamicLoad] = useState(false);
+
+  const isXs = useMediaQuery("(max-width:599px)");
+  const isSm = useMediaQuery("(min-width:600px) and (max-width:899px)");
+  const isMd = useMediaQuery("(min-width:900px) and (max-width:1199px)");
+  const isLg = useMediaQuery("(min-width:1200px)");
+
+  const getWidth = () => {
+    if (isLg) return "20vw";
+    if (isMd) return "26vw";
+    if (isSm) return "40vw";
+    if (isXs) return "50vw";
+    return "100%";
+  };
 
   useEffect(() => {
     if (hovered) {
@@ -158,7 +171,7 @@ export const ServicesSection = (): JSX.Element => {
           </Box>
         </Typography>
 
-        {daynamicLoad && <Box
+        {daynamicLoad? <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -283,9 +296,9 @@ export const ServicesSection = (): JSX.Element => {
                 maxHeight: !hovered
                   ? "5vw"
                   : index === 1 && currentIndex === 0
-                  ? "25vw"
+                  ? getWidth()
                   : index === 0 && currentIndex === 1
-                  ? "25vw"
+                  ? getWidth()
                   : "5vw",
                 maxWidth: "100%",
                 transition: "max-height 0.5s ease-out, max-width 0.5s ease-out",
@@ -298,7 +311,9 @@ export const ServicesSection = (): JSX.Element => {
               </Box>
             ))}
           </Box>
-        </Box>}
+        </Box> : <Box sx={{
+          height: "30vh",
+        }}></Box>}
 
         <Typography
           sx={{
@@ -345,12 +360,10 @@ export const ServicesSection = (): JSX.Element => {
           <Image
             src={"/img/playIcon.png"}
             alt={"Play Icon"}
-            width={50}
-            height={50}
-            style={{
-               width: "10vh", height: "10vh",
-              marginLeft: 100,
-            }}
+            width={100}
+            height={100}
+            style={{ borderRadius: 8, width: "10vh", height: "10vh" }}
+            loading="lazy"
           />
         </Box>
       </Container>
